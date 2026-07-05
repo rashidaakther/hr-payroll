@@ -1,0 +1,661 @@
+/* ==========================================================================
+   1. GLOBAL CENTRAL THEME PALETTE INITIALIZATION
+   ========================================================================== */
+:root {
+    --bg-main: #181c24;
+    --bg-sidebar: #1d212b;
+    --bg-card: #212632;
+    --bg-input: #1b1f29;
+    --border-color: #2b313f;
+    --input-border: #3e4350;
+
+    --text-main: #8c94a5;
+    --text-title-highlight: #ffffff;
+    --text-table-header-labels: #a3abbb;
+    --text-muted-sub-tokens: #4e5768;
+
+    --accent-neon-green: #62e231;
+    --accent-neon-green-alpha: rgba(98, 226, 49, 0.08);
+    --accent-neon-green-glow: rgba(98, 226, 49, 0.2);
+    --active-nav-item-text: #000000;
+
+    --btn-teal-bg: #22b9d7;
+    --btn-pink-bg: #ff4969;
+    --btn-muted-border: #313848;
+
+    --sidebar-width: 255px;
+    --sidebar-collapsed-width: 70px;
+}
+
+body.light-theme-active-node {
+    --bg-main: #f4f6fa;
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-input: #edf0f5;
+    --border-color: #e2e8f0;
+    --input-border: #c4c5c7;
+
+    --text-main: #4a5568;
+    --text-title-highlight: #1a202c;
+    --text-table-header-labels: #2d3748;
+    --text-muted-sub-tokens: #a0aec0;
+
+    --accent-neon-green: #15803d;
+    --accent-neon-green-alpha: rgba(21, 128, 61, 0.08);
+    --accent-neon-green-glow: rgba(21, 128, 61, 0.15);
+    --active-nav-item-text: #ffffff;
+
+    --btn-teal-bg: #0369a1;
+    --btn-pink-bg: #be123c;
+    --btn-muted-border: #cbd5e1;
+}
+
+/* ==========================================================================
+   2. CUSTOM MASTER RESET STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.gap-container {
+    gap: 12px;
+}
+.form-control{
+    color: var(--text-main) !important;
+}
+
+/* ==========================================================================
+   3. SIDEBAR WITH ADVANCED DROPDOWN ACCORDION STYLES
+   ========================================================================== */
+.sidebar {
+    background-color: var(--bg-sidebar);
+    min-height: 100vh;
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    padding-top: 18px;
+    border-right: 1px solid var(--border-color);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+    overflow-x: hidden;
+}
+
+body.sidebar-desktop-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-title-highlight);
+    margin-bottom: 24px;
+    white-space: nowrap;
+}
+
+.laravel-logo-img {
+    height: 22px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.brand-name-text,
+.nav-text-label,
+.arrow-icon {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+}
+
+body.sidebar-desktop-collapsed .brand-name-text,
+body.sidebar-desktop-collapsed .nav-text-label,
+body.sidebar-desktop-collapsed .arrow-icon,
+body.sidebar-desktop-collapsed .submenu-list {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0 !important;
+    overflow: hidden;
+}
+
+.mobile-sidebar-close-btn {
+    position: absolute;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-item-custom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item-custom a.submenu-toggle-trigger,
+.nav-item-custom>a {
+    display: flex;
+    align-items: center;
+    padding: 11px 24px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13.5px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.icon-box-left {
+    width: 26px;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.arrow-icon {
+    margin-left: auto;
+    font-size: 10px;
+    opacity: 0.6;
+    transition: transform 0.25s ease;
+    /* Fluid icon flipping animation rules */
+}
+
+/* Rotate dynamic chevron icon when active dropdown branch expands */
+.nav-item-custom.dropdown-expanded-node .arrow-icon {
+    transform: rotate(90deg);
+}
+
+.nav-item-custom>a:hover {
+    color: var(--text-title-highlight);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.nav-item-custom.active>a {
+    color: var(--active-nav-item-text) !important;
+    background: var(--accent-neon-green) !important;
+    font-weight: 600;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-right: 16px;
+    box-shadow: 0 4px 15px var(--accent-neon-green-glow);
+}
+
+body.sidebar-desktop-collapsed .nav-item-custom.active>a {
+    margin-right: 6px;
+}
+
+.nav-item-custom.active>a i {
+    color: var(--active-nav-item-text) !important;
+}
+
+/* SUBMENU CORE WRAPPER LAYOUT DESIGN RULES */
+.submenu-list {
+    list-style: none;
+    padding-left: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+    max-height: 0;
+    /* Keeps dropdown hidden initially */
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Expanded custom runtime node structure configuration */
+.nav-item-custom.dropdown-expanded-node .submenu-list {
+    max-height: 200px;
+    /* Adjust maximum capacity parameters dynamically */
+}
+
+.nav-sub-item-custom a {
+    display: flex;
+    align-items: center;
+    padding: 9px 24px 9px 48px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s;
+}
+
+.nav-sub-item-custom a:hover {
+    color: var(--text-title-highlight);
+}
+
+.dot-sub-icon {
+    font-size: 8px !important;
+    width: 22px;
+    color: var(--text-muted-sub-tokens);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1030;
+    display: none;
+}
+
+/* ==========================================================================
+   4. CENTRAL WORKSPACE LAYOUT ADJUSTMENTS
+   ========================================================================== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 24px 32px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.sidebar-desktop-collapsed .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+.top-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.global-hamburger-toggle-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-title-highlight);
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.global-hamburger-toggle-btn:hover {
+    border-color: var(--accent-neon-green);
+}
+
+.theme-mode-toggler-btn {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-title-highlight);
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profile-dropdown-wrapper {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-avatar-initial-box {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #38bdf8;
+    margin-right: 10px;
+}
+
+.profile-display-title {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-right: 8px;
+}
+
+.caret-arrow-dropdown {
+    font-size: 10px;
+    color: var(--text-main);
+}
+
+.workspace-heading-panel {
+    margin-bottom: 20px;
+}
+
+.main-title-text-context {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--text-title-highlight);
+    margin-bottom: 4px;
+}
+
+.breadcrumb-navigation-map {
+    font-size: 12px;
+}
+
+.root-home-link-item {
+    color: var(--accent-neon-green);
+    text-decoration: none;
+}
+
+.navigation-separator-token {
+    color: var(--text-muted-sub-tokens);
+    margin: 0 4px;
+}
+
+.active-node-label {
+    color: var(--text-main);
+}
+
+.utility-action-button-group {
+    gap: 6px;
+}
+
+.action-btn-icon {
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.action-btn-icon.tertiary-bg {
+    background-color: #ffffff;
+    color: #1e293b;
+    border: 1px solid transparent;
+}
+
+body.light-theme-active-node .action-btn-icon.tertiary-bg {
+    background-color: var(--bg-card);
+    color: var(--text-title-highlight);
+    border: 1px solid var(--border-color);
+}
+
+.action-btn-icon.primary-accent-neon-bg {
+    background-color: var(--accent-neon-green);
+    color: var(--active-nav-item-text);
+}
+
+.data-table-card-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.dark-themed-select-box {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-title-highlight);
+    padding: 6px 32px 6px 12px;
+    border-radius: 4px;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23a3abbb' d='M0 0l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+/* Profile Dropdown Parent Wrapper Context */
+.profile-dropdown-wrapper {
+    position: relative;
+    /* Fixed layer map setup */
+}
+
+/* Initially Hidden Action Panel Layout */
+.profile-extended-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    list-style: none;
+    padding: 8px 0;
+    width: 200px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: none;
+    /* Auto Hidden state setup */
+    z-index: 1050;
+}
+
+/* Show state when parent holds expansion identity */
+.profile-dropdown-wrapper.profile-active-node .profile-extended-menu {
+    display: block;
+}
+
+.profile-extended-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.profile-extended-menu li a i {
+    width: 22px;
+}
+
+.profile-extended-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-title-highlight);
+}
+
+.profile-extended-menu .divider-line {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 6px 0;
+}
+
+.entries-counter-helper-text {
+    margin-left: 8px;
+    font-size: 13px;
+}
+
+.dark-themed-search-input {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-title-highlight);
+    padding: 6px 14px;
+    border-radius: 4px;
+    width: 200px;
+    outline: none;
+}
+
+.responsive-table-overflow-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.core-structured-dark-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.core-structured-dark-table th {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-table-header-labels);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.core-structured-dark-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.primary-text-highlight-bold {
+    color: var(--text-title-highlight);
+    font-weight: 500;
+}
+
+.employee-id-neon-badge {
+    display: inline-block;
+    border: 1px solid var(--accent-neon-green);
+    color: var(--accent-neon-green);
+    background-color: var(--accent-neon-green-alpha);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.aligned-right-column {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.row-action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.edit-action-teal-btn {
+    background-color: var(--btn-teal-bg);
+}
+
+.delete-action-pink-btn {
+    background-color: var(--btn-pink-bg);
+}
+
+.lock-action-muted-btn {
+    background-color: transparent;
+    border: 1px solid var(--btn-muted-border);
+    color: var(--text-main);
+}
+
+.table-entries-summary-counter-label {
+    font-size: 12.5px;
+}
+
+.system-platform-footer-baseline {
+    font-size: 11.5px;
+    color: var(--text-muted-sub-tokens);
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   GLOBAL SUB NAVIGATION ELEMENT STYLES (WITH ACTIVE SYSTEM CONTROL)
+   ========================================================================== */
+
+/* Non-active links styling (Default state) */
+.global-sub-nav-link {
+    color: #4ade80 !important; /* Soft green */
+    background: transparent !important;
+    /* border: none !important; */
+    border-radius: 4px !important;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover fallback rule */
+.global-sub-nav-link:hover {
+    color: #22c55e !important;
+    background-color: rgba(34, 197, 94, 0.08) !important;
+}
+
+/* GLOBAL ACTIVE SELECTOR SPECIFIC CLASS */
+.global-sub-nav-link.active-sub-nav {
+    background-color: #22c55e !important; /* Premium dark solid green indicator */
+    color: #0f172a !important;            /* Pure slate dark text contrast layer */
+}
+
+/* ==========================================================================
+   5. RESPONSIVE MEDIA BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    body.sidebar-desktop-collapsed .sidebar {
+        width: var(--sidebar-width);
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show-drawer-active {
+        transform: translateX(0);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .main-content,
+    body.sidebar-desktop-collapsed .main-content {
+        margin-left: 0 !important;
+        padding: 20px 16px;
+    }
+
+    .dark-themed-search-input.w-100-mobile {
+        width: 100% !important;
+    }
+
+    .brand-name-text,
+    .nav-text-label,
+    .arrow-icon {
+        opacity: 1 !important;
+        display: inline-block !important;
+        width: auto !important;
+    }
+
+    .nav-item-custom.dropdown-expanded-node .submenu-list {
+        max-height: 500px;
+    }
+
+    /* Expand container capacity inside view drawer */
+}
+
+@media (max-width: 575.98px) {
+    .workspace-heading-panel .utility-action-button-group {
+        width: 100%;
+        display: flex;
+    }
+
+    .workspace-heading-panel .utility-action-button-group .action-btn-icon {
+        flex: 1;
+    }
+}

@@ -1,0 +1,119 @@
+body {
+    background-color: var(--bg-body);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Centered Compact Premium Card Wrapper */
+.login-card {
+    background-color: var(--bg-card);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 460px;
+    /* Perfect form sizing */
+    position: relative;
+    padding: 3.5rem 2.5rem 3rem 2.5rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Floating Theme Toggler Button */
+.theme-toggler {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: rgba(148, 163, 184, 0.15);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 100;
+    transition: all 0.2s ease;
+}
+
+.theme-toggler:hover {
+    background: rgba(148, 163, 184, 0.25);
+}
+
+.form-control {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--input-border);
+    color: var(--text-main) !important;
+    border-radius: 10px;
+    padding: 1.5rem 1rem 1.5rem 2.75rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.input-group-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    z-index: 10;
+}
+
+.form-group:focus-within .input-group-icon {
+    color: #3b82f6;
+}
+
+.btn-premium {
+    background-color: #2563eb;
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-premium:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.pass-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.text-cyan {
+    color: #22d3ee;
+}
+
+.text-main-color {
+    color: var(--text-main);
+}
+
+.text-gray-muted {
+    color: var(--text-muted);
+}
+
+.label-custom {
+    color: var(--label-color);
+}
