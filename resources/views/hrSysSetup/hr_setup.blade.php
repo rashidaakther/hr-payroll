@@ -19,5 +19,9 @@
                     class="btn px-3 font-weight-bold global-sub-nav-link border {{ request()->is('admin/religion') ? 'active-sub-nav' : '' }}">Religion</a>
                 <a href="{{ url('admin/holiday') }}"
                     class="btn px-3 font-weight-bold global-sub-nav-link border {{ request()->is('admin/holiday') ? 'active-sub-nav' : '' }}">Holiday</a>
+                <a href="{{ url('admin/year') }}"
+                    class="btn px-3 font-weight-bold global-sub-nav-link border {{ request()->is('admin/year') ? 'active-sub-nav' : '' }}">Year</a>
+                <a href="{{ url('admin/setting') }}"
+                    class="btn px-3 font-weight-bold global-sub-nav-link border {{ request()->is('admin/setting') ? 'active-sub-nav' : '' }}">Setting</a>
             </div>
         </div>

@@ -11,6 +11,10 @@ use App\Http\Controllers\ReligionController;
 use App\Http\Controllers\SectionLineController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\YearController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\AttendaceController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +64,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/admin/shift/data', [ShiftController::class, 'getShiftData'])->name('shift.getShiftData');
             Route::resource('unit', UnitController::class);
             Route::get('/admin/unit/data', [UnitController::class, 'getUnitData'])->name('unit.getUnitData');
+            Route::resource('year', YearController::class);
+            Route::get('/admin/year/data', [YearController::class, 'getYearData'])->name('year.getYearData');
+
+            Route::resource('setting', SettingController::class);
+            Route::get('/admin/setting/data', [SettingController::class, 'getSettingData'])->name('setting.getSettingData');
+
+            Route::resource('employee', EmployeeController::class);
+            Route::get('/admin/employee/data', [EmployeeController::class, 'getEmployeeData'])->name('employee.getEmployeeData');
+
+            Route::get('/admin/attendance/monthly-manual', [AttendaceController::class, 'monthlyManual_index'])->name('attendance.monthlyManual_index');
+            Route::get('/admin/attendance/get-existing', [AttendaceController::class, 'monthlyManual_getExistingAttendance'])->name('attendance.monthlyManual_getExistingAttendance');
+            Route::post('/admin/attendance/save', [AttendaceController::class, 'monthlyManual_saveAttendance'])->name('attendance.monthlyManual_saveAttendance');
         });
     });
 

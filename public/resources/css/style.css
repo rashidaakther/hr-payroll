@@ -74,8 +74,16 @@ body {
 .gap-container {
     gap: 12px;
 }
-.form-control{
+
+.form-control {
     color: var(--text-main) !important;
+    background-color: var(--bg-input) !important;
+    border: 1px solid var(--input-border) !important;
+    font-size: 0.875rem !important;
+}
+
+.theme-solid-text {
+    color: var(--text-title-highlight) !important;
 }
 
 /* ==========================================================================
@@ -153,6 +161,7 @@ body.sidebar-desktop-collapsed .submenu-list {
     position: relative;
     display: flex;
     flex-direction: column;
+    margin-bottom: 5px;
 }
 
 .nav-item-custom a.submenu-toggle-trigger,
@@ -258,6 +267,11 @@ body.sidebar-desktop-collapsed .nav-item-custom.active>a {
     backdrop-filter: blur(4px);
     z-index: 1030;
     display: none;
+}
+
+.card {
+    background-color: var(--bg-card);
+    color: var(--text-main);
 }
 
 /* ==========================================================================
@@ -588,7 +602,8 @@ body.light-theme-active-node .action-btn-icon.tertiary-bg {
 
 /* Non-active links styling (Default state) */
 .global-sub-nav-link {
-    color: #4ade80 !important; /* Soft green */
+    color: #4ade80 !important;
+    /* Soft green */
     background: transparent !important;
     /* border: none !important; */
     border-radius: 4px !important;
@@ -603,8 +618,10 @@ body.light-theme-active-node .action-btn-icon.tertiary-bg {
 
 /* GLOBAL ACTIVE SELECTOR SPECIFIC CLASS */
 .global-sub-nav-link.active-sub-nav {
-    background-color: #22c55e !important; /* Premium dark solid green indicator */
-    color: #0f172a !important;            /* Pure slate dark text contrast layer */
+    background-color: #22c55e !important;
+    /* Premium dark solid green indicator */
+    color: #0f172a !important;
+    /* Pure slate dark text contrast layer */
 }
 
 /* ==========================================================================

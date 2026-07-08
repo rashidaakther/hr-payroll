@@ -67,10 +67,21 @@
             </a>
             <ul class="submenu-list">
                 <li class="nav-sub-item-custom">
-                    <a href="#">
+                    <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
                         <i class="fa-regular fa-circle dot-sub-icon"></i>
                         <span class="nav-text-label">Staff List</span>
                     </a>
+                    <div class="collapse" id="collapseExample">
+                        <ul class="submenu-list">
+                            <li class="nav-sub-item-custom">
+                                <a href="#">
+                                    <i class="fa-solid fa-arrows-turn-right ml-3 mr-2" style="transform: rotateX(180deg)"></i>
+                                    <span class="nav-text-label">Attendance</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-sub-item-custom">
                     <a href="#">
@@ -81,8 +92,8 @@
             </ul>
         </li>
 
-        <li class="nav-item-custom">
-            <a href="#">
+        <li class="nav-item-custom {{ request()->routeIs('admin.employee.*') ? 'active font-weight-bold' : '' }}">
+            <a href="{{ route('admin.employee.index') }}">
                 <i class="fa-solid fa-id-card-clip icon-box-left"></i>
                 <span class="nav-text-label">Employee</span>
             </a>
@@ -96,15 +107,27 @@
             </a>
             <ul class="submenu-list">
                 <li class="nav-sub-item-custom">
-                    <a href="#">
+                    <a data-toggle="collapse" href="#attendanceCollapse" role="button" aria-expanded="false"
+                        aria-controls="attendanceCollapse">
                         <i class="fa-regular fa-circle dot-sub-icon"></i>
-                        <span class="nav-text-label">Manage Logs</span>
+                        <span class="nav-text-label">Attendance</span>
                     </a>
+                    <div class="collapse" id="attendanceCollapse">
+                        <ul class="submenu-list">
+                            <li class="nav-sub-item-custom">
+                                <a href="{{ route('admin.attendance.monthlyManual_index') }}">
+                                    <i class="fa-solid fa-arrows-turn-right ml-3 mr-2" style="transform: rotateX(180deg)"></i>
+                                    <span class="nav-text-label">Monthly Manual</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </li>
 
-        <li class="nav-item-custom {{ request()->routeIs('admin.branch.index') || request()->routeIs('admin.department.index') || request()->routeIs('admin.designation.index')|| request()->routeIs('admin.grade.index') || request()->routeIs('admin.holiday.index') || request()->routeIs('admin.religion.index')|| request()->routeIs('admin.section_line.index') || request()->routeIs('admin.shift.index') || request()->routeIs('admin.unit.index') ? 'active font-weight-bold' : '' }}">
+        <li
+            class="nav-item-custom {{ request()->routeIs('admin.branch.index') || request()->routeIs('admin.department.index') || request()->routeIs('admin.designation.index') || request()->routeIs('admin.grade.index') || request()->routeIs('admin.holiday.index') || request()->routeIs('admin.religion.index') || request()->routeIs('admin.section_line.index') || request()->routeIs('admin.shift.index') || request()->routeIs('admin.unit.index') || request()->routeIs('admin.year.index') ? 'active font-weight-bold' : '' }}">
             <a href="{{ route('admin.branch.index') }}">
                 <i class="fa-solid fa-grip icon-box-left"></i>
                 <span class="nav-text-label">HRM System Setup</span>
@@ -127,16 +150,19 @@
             </ul>
         </li>
 
-        <li class="nav-item-custom has-submenu">
+        <li
+            class="nav-item-custom has-submenu {{ request()->routeIs('admin.setting.index') ? 'dropdown-expanded-node active' : '' }}">
             <a href="javascript:void(0);" class="submenu-toggle-trigger">
                 <i class="fa-solid fa-gear icon-box-left"></i>
                 <span class="nav-text-label">System Setup</span>
                 <i class="fa-solid fa-chevron-right arrow-icon"></i>
             </a>
-            <ul class="submenu-list">
-                <li class="nav-sub-item-custom">
-                    <a href="#">
-                        <i class="fa-regular fa-circle dot-sub-icon"></i>
+            <ul class="submenu-list" style="{{ request()->routeIs('admin.setting.index') ? 'display: block;' : '' }}">
+                <li
+                    class="nav-sub-item-custom {{ request()->routeIs('admin.setting.index') ? 'active font-weight-bold' : '' }}">
+                    <a href="{{ route('admin.setting.index') }}">
+                        <i
+                            class="{{ request()->routeIs('admin.setting.index') ? 'fa-solid fa-circle text-cyan' : 'fa-regular fa-circle' }} dot-sub-icon"></i>
                         <span class="nav-text-label">App Settings</span>
                     </a>
                 </li>

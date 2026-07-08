@@ -58,8 +58,7 @@
                 Name</label>
             <div class="form-icon-user position-relative">
                 <input type="text" name="name" id="name" value="{{ old('name') }}"
-                    class="form-control border-0 px-3 py-2 text-white" required placeholder="e.g. Eid-ul-Fitr"
-                    style="background-color: var(--bg-input); border: 1px solid var(--input-border) !important; border-radius: 6px; font-size: 0.95rem;">
+                    class="form-control border-0 px-3 py-2 text-white" required style="background-color: var(--bg-input); border: 1px solid var(--input-border) !important; border-radius: 6px; font-size: 0.95rem;" placeholder="e.g. Eid-ul-Fitr">
             </div>
         </div>
 

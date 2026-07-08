@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2026 at 10:07 PM
+-- Generation Time: Jul 08, 2026 at 09:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,6 +46,65 @@ INSERT INTO `branches` (`id`, `name`, `created_by`, `created_at`, `updated_at`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dailyattendances`
+--
+
+CREATE TABLE `dailyattendances` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `employee_id` varchar(255) NOT NULL,
+  `year_id` int(11) DEFAULT NULL,
+  `month_id` varchar(255) DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `in_time` varchar(255) DEFAULT NULL,
+  `out_time` varchar(255) DEFAULT NULL,
+  `general_working_hour` varchar(255) DEFAULT NULL,
+  `overtime_hour` varchar(255) DEFAULT NULL,
+  `extra_overtime_hour` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `dailyattendances`
+--
+
+INSERT INTO `dailyattendances` (`id`, `employee_id`, `year_id`, `month_id`, `date`, `in_time`, `out_time`, `general_working_hour`, `overtime_hour`, `extra_overtime_hour`, `status`, `created_at`, `updated_at`) VALUES
+(2, '1', 2025, '7', '07/01/2025', '07/01/2025 07:59:05', '07/01/2025 16:56:24', '08:57', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(3, '1', 2025, '7', '07/02/2025', '07/02/2025 08:00:20', '07/02/2025 16:55:59', '08:55', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(4, '1', 2025, '7', '07/03/2025', '07/03/2025 08:04:37', '07/03/2025 17:01:36', '08:56', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(5, '1', 2025, '7', '07/04/2025', NULL, NULL, '00:00', NULL, NULL, 'Weekly Holiday', NULL, '2026-07-08 19:18:35'),
+(6, '1', 2025, '7', '07/05/2025', '07/05/2025 07:57:10', '07/05/2025 17:03:10', '09:06', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(7, '1', 2025, '7', '07/06/2025', '07/06/2025 08:04:42', '07/06/2025 16:57:36', '08:52', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(8, '1', 2025, '7', '07/07/2025', '07/07/2025 08:04:40', '07/07/2025 17:03:33', '08:58', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(9, '1', 2025, '7', '07/08/2025', '07/08/2025 08:01:38', '07/08/2025 17:03:29', '09:01', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(10, '1', 2025, '7', '07/09/2025', '07/09/2025 08:00:51', '07/09/2025 17:01:36', '09:00', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(11, '1', 2025, '7', '07/10/2025', '07/10/2025 07:59:40', '07/10/2025 16:59:54', '09:00', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(12, '1', 2025, '7', '07/11/2025', NULL, NULL, '00:00', NULL, NULL, 'Weekly Holiday', NULL, '2026-07-08 19:18:35'),
+(13, '1', 2025, '7', '07/12/2025', '07/12/2025 08:03:25', '07/12/2025 16:58:40', '08:55', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(14, '1', 2025, '7', '07/13/2025', '07/13/2025 07:59:30', '07/13/2025 17:05:21', '09:05', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(15, '1', 2025, '7', '07/14/2025', '07/14/2025 08:01:53', '07/14/2025 16:57:45', '08:55', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(16, '1', 2025, '7', '07/15/2025', '07/15/2025 08:02:01', '07/15/2025 17:02:01', '09:00', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(17, '1', 2025, '7', '07/16/2025', '07/16/2025 07:55:05', '07/16/2025 16:58:41', '09:03', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(18, '1', 2025, '7', '07/17/2025', '07/17/2025 08:03:02', '07/17/2025 16:55:59', '08:52', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(19, '1', 2025, '7', '07/18/2025', NULL, NULL, '00:00', NULL, NULL, 'Weekly Holiday', NULL, '2026-07-08 19:18:35'),
+(20, '1', 2025, '7', '07/19/2025', '07/19/2025 08:05:51', '07/19/2025 16:57:14', '08:51', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(21, '1', 2025, '7', '07/20/2025', '07/20/2025 07:55:18', '07/20/2025 16:55:14', '08:59', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(22, '1', 2025, '7', '07/21/2025', '07/21/2025 07:55:17', '07/21/2025 17:01:04', '09:05', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(23, '1', 2025, '7', '07/22/2025', '07/22/2025 07:57:16', '07/22/2025 16:57:49', '09:00', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(24, '1', 2025, '7', '07/23/2025', '07/23/2025 08:01:50', '07/23/2025 16:57:42', '08:55', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(25, '1', 2025, '7', '07/24/2025', '07/24/2025 08:01:05', '07/24/2025 17:00:08', '08:59', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(26, '1', 2025, '7', '07/25/2025', NULL, NULL, '00:00', NULL, NULL, 'Weekly Holiday', NULL, '2026-07-08 19:18:35'),
+(27, '1', 2025, '7', '07/26/2025', '07/26/2025 07:57:33', '07/26/2025 17:04:30', '09:06', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(28, '1', 2025, '7', '07/27/2025', '07/27/2025 08:05:17', '07/27/2025 17:02:33', '08:57', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(29, '1', 2025, '7', '07/28/2025', '07/28/2025 07:59:45', '07/28/2025 16:59:29', '08:59', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(30, '1', 2025, '7', '07/29/2025', '07/29/2025 08:02:45', '07/29/2025 17:02:04', '08:59', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(31, '1', 2025, '7', '07/30/2025', '07/30/2025 08:00:55', '07/30/2025 16:56:19', '08:55', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35'),
+(32, '1', 2025, '7', '07/31/2025', '07/31/2025 08:05:21', '07/31/2025 16:55:25', '08:50', NULL, NULL, 'Present', NULL, '2026-07-08 19:18:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `departments`
 --
 
@@ -64,7 +123,8 @@ CREATE TABLE `departments` (
 
 INSERT INTO `departments` (`id`, `branch_id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Sewing oparator', NULL, '2026-07-01 19:12:56', '2026-07-01 19:12:56'),
-(2, 2, 'Finishing', 1, '2026-07-01 19:17:05', '2026-07-01 19:17:05');
+(2, 2, 'Finishing', 1, '2026-07-01 19:17:05', '2026-07-01 19:17:05'),
+(3, 2, 'HR - Admin', 1, '2026-07-07 16:00:43', '2026-07-07 16:00:43');
 
 -- --------------------------------------------------------
 
@@ -87,7 +147,89 @@ CREATE TABLE `designations` (
 --
 
 INSERT INTO `designations` (`id`, `branch_id`, `department_id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 'SSMO', NULL, '2026-07-01 19:52:40', '2026-07-01 19:52:40');
+(1, 2, 1, 'SSMO', NULL, '2026-07-01 19:52:40', '2026-07-01 19:52:40'),
+(2, 2, 3, 'HR Manager', 1, '2026-07-07 16:01:09', '2026-07-07 16:01:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `empofficeinfos`
+--
+
+CREATE TABLE `empofficeinfos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `employee_id` varchar(255) NOT NULL,
+  `employee_name` varchar(255) NOT NULL,
+  `employee_name_other` varchar(255) DEFAULT NULL,
+  `official_mail` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `office` varchar(255) DEFAULT NULL,
+  `shift` varchar(255) DEFAULT NULL,
+  `unit` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL,
+  `section_line` varchar(255) DEFAULT NULL,
+  `work_group` varchar(255) DEFAULT NULL,
+  `salary_type` varchar(255) DEFAULT NULL,
+  `card_no` varchar(255) DEFAULT NULL,
+  `joining_date` varchar(255) DEFAULT NULL,
+  `grade` varchar(255) DEFAULT NULL,
+  `gross` varchar(255) DEFAULT NULL,
+  `second_gross` varchar(255) DEFAULT NULL,
+  `manager` varchar(255) DEFAULT NULL,
+  `job_location` varchar(255) DEFAULT NULL,
+  `probation_period` varchar(255) DEFAULT NULL,
+  `confirmation_date` varchar(255) DEFAULT NULL,
+  `is_ot_payable` varchar(255) DEFAULT NULL,
+  `is_masked` varchar(255) DEFAULT NULL,
+  `employee_status` varchar(255) DEFAULT NULL,
+  `discontinuation_date` varchar(255) DEFAULT NULL,
+  `discontinuation_reason` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `empofficeinfos`
+--
+
+INSERT INTO `empofficeinfos` (`id`, `employee_id`, `employee_name`, `employee_name_other`, `official_mail`, `designation`, `office`, `shift`, `unit`, `department`, `section_line`, `work_group`, `salary_type`, `card_no`, `joining_date`, `grade`, `gross`, `second_gross`, `manager`, `job_location`, `probation_period`, `confirmation_date`, `is_ot_payable`, `is_masked`, `employee_status`, `discontinuation_date`, `discontinuation_reason`, `created_at`, `updated_at`) VALUES
+(1, '#GMT000000001', 'Dipjoy Sarker', 'দ্বীপজয় সরকার', NULL, '2', '2', '1', '1', '3', '2', 'Staff', 'Regular', '1', '2026-07-07', '1', '40000.00', '40000.00', NULL, NULL, NULL, NULL, 'No', 'No', 'Active', NULL, NULL, '2026-07-07 16:50:50', '2026-07-07 18:57:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emppersonalinfos`
+--
+
+CREATE TABLE `emppersonalinfos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `employee_id` varchar(255) NOT NULL,
+  `father_name` varchar(255) DEFAULT ' ',
+  `mother_name` varchar(255) DEFAULT ' ',
+  `height` varchar(255) DEFAULT ' ',
+  `contact_number` varchar(255) DEFAULT ' ',
+  `birth_date` varchar(255) DEFAULT ' ',
+  `gender` varchar(255) DEFAULT ' ',
+  `religion` varchar(255) DEFAULT ' ',
+  `nationality` varchar(255) DEFAULT ' ',
+  `national_id` varchar(255) DEFAULT ' ',
+  `birth_certificate` varchar(255) DEFAULT ' ',
+  `blood_group` varchar(255) DEFAULT ' ',
+  `marital_status` varchar(255) DEFAULT ' ',
+  `emergency_contact_name` varchar(255) DEFAULT ' ',
+  `emergency_contact_address` varchar(255) DEFAULT ' ',
+  `emergency_contact_number` varchar(255) DEFAULT ' ',
+  `emergency_contact_relationship` varchar(255) DEFAULT ' ',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `emppersonalinfos`
+--
+
+INSERT INTO `emppersonalinfos` (`id`, `employee_id`, `father_name`, `mother_name`, `height`, `contact_number`, `birth_date`, `gender`, `religion`, `nationality`, `national_id`, `birth_certificate`, `blood_group`, `marital_status`, `emergency_contact_name`, `emergency_contact_address`, `emergency_contact_number`, `emergency_contact_relationship`, `created_at`, `updated_at`) VALUES
+(1, '1', NULL, NULL, NULL, NULL, '1995-04-04', 'Male', NULL, 'Bangladeshi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2026-07-07 16:50:50', '2026-07-07 19:32:20');
 
 -- --------------------------------------------------------
 
@@ -192,7 +334,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2026_06_26_170300_create_section_lines_table', 2),
 (11, '2026_06_26_170331_create_grades_table', 2),
 (12, '2026_06_26_170356_create_religions_table', 2),
-(13, '2026_06_26_170659_create_holidays_table', 2);
+(13, '2026_06_26_170659_create_holidays_table', 2),
+(14, '2026_07_05_230848_create_empofficeinfos_table', 3),
+(15, '2026_07_05_230956_create_emppersonalinfos_table', 3),
+(16, '2026_07_05_232215_create_dailyattendances_table', 4),
+(17, '2026_07_06_224007_create_settings_table', 5),
+(18, '2026_07_08_191022_create_years_table', 6);
 
 -- --------------------------------------------------------
 
@@ -268,7 +415,30 @@ CREATE TABLE `section_lines` (
 --
 
 INSERT INTO `section_lines` (`id`, `branch_id`, `unit_id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, '2', '1', 'Sewing - op - A', '1', '2026-07-02 20:26:58', '2026-07-02 20:26:58');
+(1, '2', '1', 'Sewing - op - A', '1', '2026-07-02 20:26:58', '2026-07-02 20:26:58'),
+(2, '2', '1', 'Office', '1', '2026-07-07 16:01:38', '2026-07-07 16:01:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT '',
+  `value` longtext DEFAULT '',
+  `created_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `name`, `value`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'employee_prefix', '#GMT00000', 1, '2026-07-06 18:59:00', '2026-07-06 18:59:00');
 
 -- --------------------------------------------------------
 
@@ -352,6 +522,28 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `co
 (1, 'System Admin', 'admin@company.com', NULL, '$2y$10$ANrzePDogH3C/L/KEVyKfu.qctEHkt47CUjHm4hJS/h4ewrusydY.', '$2y$10$8Z11IGgh.8vtCKCdDpNwMOWGCAcUIUvGIr5i0SWh3NgnmucXcPC8C', 'admin', NULL, '2026-06-25 09:32:53', '2026-06-25 09:32:53'),
 (2, 'General Employee', 'user@company.com', NULL, '$2y$10$0pv./GUVbCoha1P3zUW/Qee63sAPuCIa3HCA6SMoRuV56A9bBlihq', '$2y$10$qPfy0geZD28tw/REN6trnukbj4MsCry0bhmwsjPBEwkSHbVj8IvfC', 'user', NULL, '2026-06-25 09:32:53', '2026-06-25 09:32:53');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `years`
+--
+
+CREATE TABLE `years` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `years`
+--
+
+INSERT INTO `years` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '2025', 1, '2026-07-08 13:37:00', '2026-07-08 13:37:00'),
+(2, '2026', 1, '2026-07-08 13:37:15', '2026-07-08 13:37:15');
+
 --
 -- Indexes for dumped tables
 --
@@ -360,6 +552,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `co
 -- Indexes for table `branches`
 --
 ALTER TABLE `branches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dailyattendances`
+--
+ALTER TABLE `dailyattendances`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -373,6 +571,19 @@ ALTER TABLE `departments`
 --
 ALTER TABLE `designations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `empofficeinfos`
+--
+ALTER TABLE `empofficeinfos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `emppersonalinfos`
+--
+ALTER TABLE `emppersonalinfos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `emppersonalinfos_employee_id_unique` (`employee_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -426,6 +637,13 @@ ALTER TABLE `section_lines`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `settings_name_unique` (`name`);
+
+--
 -- Indexes for table `shifts`
 --
 ALTER TABLE `shifts`
@@ -445,6 +663,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `years`
+--
+ALTER TABLE `years`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -455,15 +679,33 @@ ALTER TABLE `branches`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `dailyattendances`
+--
+ALTER TABLE `dailyattendances`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `designations`
 --
 ALTER TABLE `designations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `empofficeinfos`
+--
+ALTER TABLE `empofficeinfos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `emppersonalinfos`
+--
+ALTER TABLE `emppersonalinfos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -488,7 +730,7 @@ ALTER TABLE `holidays`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -506,6 +748,12 @@ ALTER TABLE `religions`
 -- AUTO_INCREMENT for table `section_lines`
 --
 ALTER TABLE `section_lines`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -524,6 +772,12 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `years`
+--
+ALTER TABLE `years`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
